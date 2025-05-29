@@ -2,7 +2,7 @@ package paqueteexamenes;
 
 import java.util.Scanner;
 
-import static paqueteexamenes.TresEnRaya.*;
+import static paqueteexamenes.TresEnRayaV1.*;
 
 public class MainTresEnRaya {
 	public static void main(String[] args) {
