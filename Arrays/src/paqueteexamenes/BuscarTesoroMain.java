@@ -26,11 +26,11 @@ public class BuscarTesoroMain {
 		
 		numO = (int) Math.sqrt(filas * cols) / 2;
 		
-		System.out.println("\n\n\n\n¡Bienvenido al juego de Buscar el Tesoro!");
+		System.out.println("\n¡Bienvenido al juego de Buscar el Tesoro!");
 		inicializaTablero(filas, cols);
+		generaPosicionJugador();
 		generaPosicionTesoro();
 		generaObstaculos(numO);
-		generaPosicionJugador();
 		
 		while (!tesoroEnc) {
 			pintaTablero();
@@ -47,12 +47,9 @@ public class BuscarTesoroMain {
 				System.out.println("\nMovimiento realizado.\n");
 
 			}
-			
-			if (t[posI][posJ] == 'X') {
-				System.out.println("\n¡Enhorabuena, ha encontrado el tesoro!");
-				tesoroEnc = true;
-			}
-			
 		}
+		
+		System.out.println("\n¡Enhorabuena, ha encontrado el tesoro!");
+
 	}
 }

@@ -108,35 +108,31 @@ public class BuscarTesoro {
 	}
 
 	public static int mueveJugador(String movimiento) {
-		int res = 0;
+		int res = -1;
 
 		switch (movimiento) {
 		case "ARRIBA" -> {
 			if (posI - 1 >= 0 && t[posI - 1][posJ] != '*') {
 				posI--;
-			} else {
-				res = -1;
+				res = 0;
 			}
 		}
 		case "ABAJO" -> {
 			if (posI + 1 < t.length && t[posI + 1][posJ] != '*') {
 				posI++;
-			} else {
-				res = -1;
+				res = 0;
 			}
 		}
 		case "IZQUIERDA" -> {
 			if (posJ - 1 >= 0 && t[posI][posJ - 1] != '*') {
 				posJ--;
-			} else {
-				res = -1;
+				res = 0;
 			}
 		}
 		case "DERECHA" -> {
 			if (posJ + 1 < t[0].length && t[posI][posJ + 1] != '*') {
 				posJ++;
-			} else {
-				res = -1;
+				res = 0;
 			}
 		}
 		default -> res = -2;
