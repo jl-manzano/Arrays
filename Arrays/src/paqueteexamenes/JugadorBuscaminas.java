@@ -2,54 +2,60 @@ package paqueteexamenes;
 
 import java.util.Arrays;
 
-public class Jugador3EnRaya {
+public class JugadorBuscaminas {
 	private String nombre;
-	private char ficha;
 	private char[][] t;
+	private int numCasillasRes;
 
-	public Jugador3EnRaya(String nombre, char ficha) {
+	public JugadorBuscaminas(String nombre, int filas, int columnas, int numMinas) {
 		this.nombre = nombre;
-		this.ficha = ficha;
-
-		t = new char[3][3];
-
+		t = new char[filas][columnas];
 		for (int i = 0; i < t.length; i++) {
 			Arrays.fill(t[i], '-');
 		}
+
+		this.numCasillasRes = filas * columnas - numMinas;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public char getFicha() {
-		return ficha;
-	}
-
 	public char[][] getT() {
 		return t;
 	}
 
-	@Override
-	public String toString() {
-		String res = "TURNO DEL JUGADOR " + nombre + "\nFICHA: " + ficha + "\n";
+	public int getNumCasillasRes() {
+		return numCasillasRes;
+	}
 
+	public void decrementarNumCasillasRes() {
+		if (numCasillasRes > 0) {
+			numCasillasRes--;
+		}
+	}
+
+	public String toString() {
+		String res = "\t";
 		for (int i = 0; i < t[0].length; i++) {
-			res += "\t" + (i + 1);
+			res += (i + 1) + "\t";
 		}
 
 		res += "\n";
 
 		for (int i = 0; i < t.length; i++) {
-			res += ((i + 1) + "\t");
+			res += (i + 1) + "\t";
 			for (int j = 0; j < t[i].length; j++) {
 				res += t[i][j] + "\t";
+
 			}
 
 			res += "\n";
+
 		}
 
 		return res;
+
 	}
 
 }
